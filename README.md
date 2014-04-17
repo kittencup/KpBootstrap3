@@ -103,28 +103,28 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
 组件下载地址 http://www.bootcss.com/p/bootstrap-datetimepicker/
 
 // KpBootstrap3/Module.php
-<?php
-class Module
-{
-    public function getConfig()
+    <?php
+    class Module
     {
-        return array(
-            'kpBootstrap3' => array(
-                'dateTime' => array(
-                    // 时间戳 转换 日期的格式，只支持 时间戳和此格式的数据判断
-                    'dateFormat' => 'Y-m-d H:i:s',
-                    // 对于dateTime类型 是否开启 datetimepicker 组件
-                    'datetimepicker' => true,
-                    // datetimepicker 的组件js css所在文件夹
-                    'datetimepickerAssertPath' => '/vendor/datetimepicker',
-                    // datetimepicker 的选项
-                    'datetimepickerOption' => array(
-                        'format' => "yyyy-mm-dd hh:ii:ss",
-                        'autoclose' => true,
-                        'todayBtn' => true,
+        public function getConfig()
+        {
+            return array(
+                'kpBootstrap3' => array(
+                    'dateTime' => array(
+                        // 时间戳 转换 日期的格式，只支持 时间戳和此格式的数据判断
+                        'dateFormat' => 'Y-m-d H:i:s',
+                        // 对于dateTime类型 是否开启 datetimepicker 组件
+                        'datetimepicker' => true,
+                        // datetimepicker 的组件js css所在文件夹
+                        'datetimepickerAssertPath' => '/vendor/datetimepicker',
+                        // datetimepicker 的选项
+                        'datetimepickerOption' => array(
+                            'format' => "yyyy-mm-dd hh:ii:ss",
+                            'autoclose' => true,
+                            'todayBtn' => true,
+                        )
                     )
-                )
-            ),
+                ),
+        }
     }
-}
-?>
+    ?>
