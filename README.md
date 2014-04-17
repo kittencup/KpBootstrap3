@@ -1,11 +1,11 @@
-KpBootstrap3
+KpBootstrap3 版本 0.0.1
 ============
-版本 0.0.1
+Zend Framework 2 模块
 
 介绍
 ------
 
-使用Twitter Bootstrap 3 的样式输出Form组建
+使用Twitter Bootstrap 3的样式输出Form组件
 
 安装
 ------
