@@ -12,13 +12,13 @@ KpBootstrap3
 
 下载后放入Module文件夹，在config/application.config.php里配置
 
-<?php
-return array(
-    'modules' => array(
+    <?php
+    return array(
+        'modules' => array(
+            // ...
+            'KpBootstrap3',
+        ),
         // ...
-        'KpBootstrap3',
-    ),
-    // ...
-);
-?>
+    );
+    ?>
 
