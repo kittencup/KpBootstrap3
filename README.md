@@ -82,10 +82,10 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
                 // 设置form的class
                 $this->setAttribute('class', 'form-horizontal');
                 
-                // 对Label的类进行设置
+                // 设置Label所使用的grid类
                 $this->setAttribute('horizontalLabelClass', 'col-sm-5')
                 
-                // 对表单Layout的类进行设置
+                // 设置表单Layout所使用的grid类
                 $this->setAttribute('horizontalInputWrapClass', 'col-sm-5')
                 
                 // ....
@@ -98,3 +98,33 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
         echo $this->form($form);
     ?>
 
+4、重写了元素 dateTime 配合Bootstrap3的datetimepicker js组件
+
+组件下载地址 http://www.bootcss.com/p/bootstrap-datetimepicker/
+
+// KpBootstrap3/Module.php
+<?php
+class Module
+{
+    public function getConfig()
+    {
+        return array(
+            'kpBootstrap3' => array(
+                'dateTime' => array(
+                    // 时间戳 转换 日期的格式，只支持 时间戳和此格式的数据判断
+                    'dateFormat' => 'Y-m-d H:i:s',
+                    // 对于dateTime类型 是否开启 datetimepicker 组件
+                    'datetimepicker' => true,
+                    // datetimepicker 的组件js css所在文件夹
+                    'datetimepickerAssertPath' => '/vendor/datetimepicker',
+                    // datetimepicker 的选项
+                    'datetimepickerOption' => array(
+                        'format' => "yyyy-mm-dd hh:ii:ss",
+                        'autoclose' => true,
+                        'todayBtn' => true,
+                    )
+                )
+            ),
+    }
+}
+?>
