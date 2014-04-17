@@ -102,7 +102,7 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
 
 组件下载地址 http://www.bootcss.com/p/bootstrap-datetimepicker/
 
-// KpBootstrap3/Module.php
+    // KpBootstrap3/Module.php
     <?php
     class Module
     {
