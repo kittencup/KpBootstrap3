@@ -71,7 +71,7 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
 
     // Application/src/Application/Form/IndexForm.php
     <?php
-        namespace KpUser\Form;
+        namespace KpApplication\Form;
     
         class IndexForm extends UserForm
         {
