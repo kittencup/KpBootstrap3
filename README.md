@@ -41,9 +41,9 @@ KpBootstrap3 默认使用的是 无class的默认表单
     
     // Application/src/Application/Form/IndexForm.php
     <?php
-        namespace KpUser\Form;
+        namespace Application\Form;
     
-        class IndexForm extends UserForm
+        class IndexForm
         {
             public function __construct()
             {
@@ -71,9 +71,9 @@ form-horizontal 默认会对Label和表单元素进行Grid布局，总共12格Gr
 
     // Application/src/Application/Form/IndexForm.php
     <?php
-        namespace KpApplication\Form;
+        namespace Application\Form;
     
-        class IndexForm extends UserForm
+        class IndexForm
         {
             public function __construct()
             {
