@@ -16,14 +16,47 @@ use Zend\Validator\Date;
 
 class FormDateTime extends ZfFormDateTime
 {
+    /**
+     * 配置中的键值
+     * @var string
+     */
     protected $configKey = 'kpBootstrap3';
-    protected $defaultClass = 'form-control';
+
+    /**
+     * 日期格式化
+     * @var string
+     */
     protected $dateFormat = 'Y-m-d H:i:s';
+
+    /**
+     * 语言
+     * @var string
+     */
     protected $locale = 'zh-CN';
+
+    /**
+     * DateTimepicker Js
+     * @var string
+     */
     protected $datetimepickerJs = '/js/bootstrap-datetimepicker.min.js';
+
+    /**
+     *  DateTimepicker Css
+     * @var string
+     */
     protected $datetimepickerCss = '/css/bootstrap-datetimepicker.min.css';
+
+    /**
+     *  DateTimepicker 语言包 Js
+     * @var string
+     */
     protected $datetimepickerLocaleJs = '/js/locales/bootstrap-datetimepicker.%s.js';
 
+    /**
+     * $helper($elment);
+     * @param ElementInterface $element
+     * @return mixed
+     */
     public function __invoke(ElementInterface $element = null)
     {
 
@@ -56,6 +89,10 @@ class FormDateTime extends ZfFormDateTime
         return parent::__invoke($element);
     }
 
+    /**
+     * 设置日期格式化
+     * @param $config
+     */
     protected function setDateFormat($config)
     {
         if (isset($config['dateTime']['dateFormat'])) {
@@ -63,9 +100,15 @@ class FormDateTime extends ZfFormDateTime
         }
     }
 
+    /**
+     * 格式化日期
+     * value不符合dateFormate格式，则格式化value
+     * @param ElementInterface $element
+     */
     protected function formatValue(ElementInterface $element)
     {
         $value = $element->getValue();
+
         if (!empty($value)) {
 
             $dateValidator = new Date(array('format' => $this->dateFormat));
@@ -78,6 +121,11 @@ class FormDateTime extends ZfFormDateTime
         }
     }
 
+    /**
+     * 给元素设置id
+     * DateTimepicker 组件 需要 id 启动js
+     * @param ElementInterface $element
+     */
     protected function setId(ElementInterface $element)
     {
         $id = $element->getAttribute('id');
@@ -87,19 +135,33 @@ class FormDateTime extends ZfFormDateTime
     }
 
 
+    /**
+     * 检查配置，确定是否需要开启DateTimepicker组件
+     * @param $config
+     * @return bool
+     */
     protected function checkDatetimepicker($config)
     {
         return isset($config['dateTime']['datetimepicker']) && $config['dateTime']['datetimepicker'] === true && isset($config['dateTime']['datetimepickerAssertPath']);
     }
 
+    /**
+     * 获取配置文件
+     * @return array
+     */
     protected function getConfig()
     {
+        // @todo 给phpunit test用的
         if (is_callable(array($this->getView(), 'getHelperPluginManager'))) {
             return $this->getView()->getHelperPluginManager()->getServiceLocator()->get('Config');
         }
         return array();
     }
 
+    /**
+     * 设置语言
+     * @param $config
+     */
     protected function setLocal($config)
     {
         if (isset($config['translator']['locale'])) {
@@ -134,6 +196,11 @@ class FormDateTime extends ZfFormDateTime
     }
 
 
+    /**
+     * 将php配置 转换为 js的配置
+     * @param $config
+     * @return string
+     */
     protected function createDatetimepickerOption($config)
     {
 

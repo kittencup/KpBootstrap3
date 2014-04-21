@@ -26,6 +26,7 @@ class Form extends ZfForm
             if ($element instanceof FieldsetInterface) {
                 $formContent .= $this->getView()->formCollection($element);
             } else {
+                // 将$form 传给$element
                 $element->setOption('_form', $form);
                 $formContent .= $this->getView()->formRow($element);
             }
