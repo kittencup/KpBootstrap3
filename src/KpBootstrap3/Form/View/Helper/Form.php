@@ -8,6 +8,7 @@
  */
 namespace KpBootstrap3\Form\View\Helper;
 
+use Zend\Form\FieldsetInterface;
 use Zend\Form\FormInterface;
 use Zend\Form\View\Helper\Form as ZfForm;
 
@@ -23,6 +24,7 @@ class Form extends ZfForm
         $formContent = '';
 
         foreach ($form as $element) {
+
             if ($element instanceof FieldsetInterface) {
                 $formContent .= $this->getView()->formCollection($element);
             } else {

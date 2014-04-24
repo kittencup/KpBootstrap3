@@ -107,7 +107,7 @@ class FormDateTime extends ZfFormDateTime
      */
     protected function formatValue(ElementInterface $element)
     {
-        $value = $element->getValue();
+        $value = (string)$element->getValue();
 
         if (!empty($value)) {
 
@@ -118,6 +118,9 @@ class FormDateTime extends ZfFormDateTime
                 $dateTime->setTimestamp($value);
                 $element->setValue($dateTime->format($this->dateFormat));
             }
+        } else {
+            // 如果value为空，可能是0 验证时候可能通不过，所以在这里清空
+            $element->setValue('');
         }
     }
 
@@ -183,12 +186,12 @@ class FormDateTime extends ZfFormDateTime
         $datetimepickerAssertPath = $config['dateTime']['datetimepickerAssertPath'];
 
         $inlineScriptHelper = $view->plugin('inlineScript');
-        $inlineScriptHelper('file',$datetimepickerAssertPath . $this->datetimepickerJs);
-        $inlineScriptHelper('file',$datetimepickerAssertPath . sprintf($this->datetimepickerLocaleJs, $this->locale));
+        $inlineScriptHelper('file', $datetimepickerAssertPath . $this->datetimepickerJs);
+        $inlineScriptHelper('file', $datetimepickerAssertPath . sprintf($this->datetimepickerLocaleJs, $this->locale));
         $inlineScriptHelper('script',
-                '$("#' . $name . '").datetimepicker({'
-                . $this->createDatetimepickerOption($config) .
-                '})'
+            '$("#' . $name . '").datetimepicker({'
+            . $this->createDatetimepickerOption($config) .
+            '})'
         );
 
         $view->plugin('headLink')->prependStylesheet($datetimepickerAssertPath . $this->datetimepickerCss);
