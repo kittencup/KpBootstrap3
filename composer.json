@@ -1,8 +1,4 @@
 {
     "name": "kp/kp-bootstrap3",
-    "description": "Zend Framework 2 Twitter Bootstrap3 ",
-    "authors":{
-        "name":"kittencup",
-        "homepage":"http://www.kittencup.com"
-    }
+    "description": "Zend Framework 2 Twitter Bootstrap3 "
 }
