@@ -1,4 +1,9 @@
 {
     "name": "kp/kp-bootstrap3",
-    "description": "Zend Framework 2 Twitter Bootstrap3 "
+    "description": "Zend Framework 2 Twitter Bootstrap3 ",
+    "autoload": {
+        "psr-0": {
+            "KpBootstrap3\\": "src/"
+        }
+    }
 }
